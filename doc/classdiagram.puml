@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Bank
+class TextUI
+class Customer
+class Account
+
+
+Main *-- TextUI
+Main *-- Bank
+Bank *-- Customer
+Customer *-- Account
+
+Main : +{static} void main(String [] args)
+
+Customer : -int id
+Customer : -String name
+Customer : -Account account
+Customer : -{static} int counter
+Customer : +Customer(String name)
+Customer : + Account getAccount()
+Customer : +int getId()
+Customer : +String getName()
+Customer : +String toString()
+
+Account : +Account()
+Account : -int balance
+Account : +int getBalance()
+Account : + void setBalance(int amount)
+
+
+Bank : - ArrayList<Customer> customers
+Bank : + int customerLimit
+Bank : + Bank(int customerLimit)
+Bank : + {static} int getTotalBanks()
+Bank : + void registerCustomer(String msg)
+Bank : + void displayCustomers()
+Bank : + void saveCustomers()
+
+TextUI : + String getInput(String msg)
+TextUI : - Scanner scan
+TextUI : + TextUI()
+
+
+
+
+
+@enduml
